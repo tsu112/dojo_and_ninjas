@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <title>Index</title>
+  </head>
+  <body>
+    <div class="d-flex justify-content-around">
+      <form
+        action="/create_dojo"
+        method="post"
+        class="col-4 bg-dark p-4 my-5 text-light"
+      >
+        <h1 class="text-center">New Dojo</h1>
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text" name="name" class="form-control" />
+          <!-- form control puts the name right above the text bar -->
+        </div>
+        <input
+          type="submit"
+          value="Add Dojos"
+          class="btn btn-primary btn-outline-dark"
+        />
+      </form>
+      <div class="col-4 bg-dark text-light text-center my-5 p-4">
+        <h1>All Dojos</h1>
+        {% for row in all_dojos %}
+        <p>
+          <a href="/dojo/{{row.id}}" class="text-warning">{{row.name}}</a>
+        </p>
+        {% endfor %}
+      </div>
+    </div>
+    <a href="/ninjas" class="text-center mx-auto">Add Ninja</a>
+  </body>
+</html>
